@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Medical Professional Color Palette */
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep Medical Blue - Trust & Professionalism */
+    --primary: 210 60% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft Blue-Gray */
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Premium Gold Accent */
+    --accent: 38 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 210 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom Medical Design Tokens */
+    --medical-blue: 210 60% 25%;
+    --medical-blue-light: 210 50% 40%;
+    --medical-teal: 185 45% 35%;
+    --premium-gold: 38 70% 50%;
+    --premium-gold-light: 40 65% 60%;
+    --soft-cream: 40 30% 97%;
+    --text-heading: 215 25% 15%;
+    --text-body: 215 15% 35%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 60% 25%) 0%, hsl(210 50% 35%) 50%, hsl(185 45% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(40 65% 60%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 30% 94%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(210 60% 25% / 0.1);
+    --shadow-elevated: 0 12px 40px -8px hsl(210 60% 25% / 0.15);
+    --shadow-glow: 0 0 40px hsl(38 70% 50% / 0.3);
+
+    /* Sidebar defaults */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 50% 60%;
+    --primary-foreground: 215 25% 8%;
+
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 25% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 38 70% 55%;
+    --accent-foreground: 215 25% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 20%;
+    --ring: 210 50% 60%;
+
+    --medical-blue: 210 50% 60%;
+    --medical-blue-light: 210 45% 70%;
+    --medical-teal: 185 40% 50%;
+    --premium-gold: 38 70% 55%;
+    --premium-gold-light: 40 65% 65%;
+    --soft-cream: 215 25% 12%;
+    --text-heading: 210 40% 98%;
+    --text-body: 215 15% 70%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(215 25% 12%) 0%, hsl(215 25% 18%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .placeholder-text {
+    @apply text-accent font-medium italic;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold text-foreground tracking-tight;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
